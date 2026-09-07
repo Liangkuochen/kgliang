@@ -2,27 +2,61 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>十關吃蛇大冒險</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#081412">
+  <title>🐍 十關吃蛇大冒險</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="game-shell">
-    <h1>🐍 十關吃蛇大冒險</h1>
-    <div class="hud">
-      <span>關卡 <b id="level">1</b>/10</span>
-      <span>分數 <b id="score">0</b></span>
-      <span>目標 <b id="target">5</b></span>
-      <span>速度 <b id="speed">1</b></span>
-    </div>
-    <canvas id="game" width="600" height="600"></canvas>
-    <div class="controls">
-      <button id="start">開始遊戲</button>
-      <button id="pause">暫停</button>
-      <button id="restart">重新開始</button>
-    </div>
-    <p class="hint">鍵盤：↑ ↓ ← → 或 WASD　｜　空白鍵暫停</p>
-    <div id="message" class="message">按「開始遊戲」開始！</div>
+    <section id="startScreen" class="screen">
+      <div class="snake-logo">🐍</div>
+      <h1>十關吃蛇大冒險</h1>
+      <p>吃掉食物、避開障礙，挑戰全部 10 關！</p>
+      <button id="startGame" class="primary">▶ 開始遊戲</button>
+      <button id="soundToggle" class="secondary">🔊 音效：開</button>
+      <div class="howto">
+        <b>手機玩法</b>
+        <span>使用下方方向鍵控制蛇</span>
+        <span>也可以滑動遊戲畫面改變方向</span>
+      </div>
+    </section>
+
+    <section id="gameScreen" class="hidden">
+      <h1>🐍 十關吃蛇大冒險</h1>
+      <div class="hud">
+        <span>關卡 <b id="level">1</b>/10</span>
+        <span>分數 <b id="score">0</b></span>
+        <span>目標 <b id="target">0/5</b></span>
+        <span>速度 <b id="speed">1x</b></span>
+      </div>
+
+      <div class="canvas-wrap">
+        <canvas id="game" width="600" height="600"></canvas>
+        <div id="overlay" class="overlay hidden">
+          <div id="overlayText"></div>
+          <button id="overlayButton" class="primary">繼續</button>
+        </div>
+      </div>
+
+      <div id="message" class="message">準備開始！</div>
+
+      <div class="mobile-controls" aria-label="手機方向鍵">
+        <button data-dir="up" class="dir up">▲</button>
+        <div class="middle">
+          <button data-dir="left" class="dir">◀</button>
+          <button data-dir="down" class="dir">▼</button>
+          <button data-dir="right" class="dir">▶</button>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="pause">⏸ 暫停</button>
+        <button id="restart">↻ 重新開始</button>
+        <button id="backHome">⌂ 主選單</button>
+      </div>
+      <p class="hint">鍵盤：↑ ↓ ← → / WASD　｜　空白鍵：暫停</p>
+    </section>
   </main>
   <script src="game.js"></script>
 </body>
