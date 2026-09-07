@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>十關吃蛇大冒險</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <h1>🐍 十關吃蛇大冒險</h1>
+    <div class="hud">
+      <span>關卡 <b id="level">1</b>/10</span>
+      <span>分數 <b id="score">0</b></span>
+      <span>目標 <b id="target">5</b></span>
+      <span>速度 <b id="speed">1</b></span>
+    </div>
+    <canvas id="game" width="600" height="600"></canvas>
+    <div class="controls">
+      <button id="start">開始遊戲</button>
+      <button id="pause">暫停</button>
+      <button id="restart">重新開始</button>
+    </div>
+    <p class="hint">鍵盤：↑ ↓ ← → 或 WASD　｜　空白鍵暫停</p>
+    <div id="message" class="message">按「開始遊戲」開始！</div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
